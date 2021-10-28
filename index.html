@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestafacil</title>
+    <link rel="stylesheet" href="estilo.css">
+    
+</head>
+<header class="header">
+
+    <img src="./imagenes/Nuevo proyecto.png" alt="Prestafacil">
+
+</header>
+<body class=body>
+    
+    <h1 class="title">Bienvenidos a Prestafacil!</h1>
+    <h2 class="mensaje">Con tu nombre y dni obtene la pre-aprobación de tu credito!!</h2>
+    <form class="form">
+       <section class="formulario">
+
+        <div>
+        <label class="parrafos">Nombre:</label>
+        <input type="text" id="nombre" name="Nombre"/>
+        </div>
+        <br>
+        <div>
+        <label class="parrafos">DNI:</label>
+        <input type="text" id="dni" name="DNI"/>
+        </div>
+        <br>
+        <div>
+        <label class="parrafos">Cantidad de Dinero:</label>
+        <input type="text" id="prestamo" name="Prestamo"/>
+        </div>
+        <br>
+        <div>
+        <label class="parrafos">Numero de Cuota:</label>
+        <select name="Cuota" id="cuota">
+            <option value="3">03</option>
+            <option value="6">06</option>
+            <option value="12">12</option>
+            <option value="18">18</option>
+            <option value="24">24</option>
+        </select>
+        </div>
+        <br>
+        <div>
+            <button onclick="enviar()" type="button">Enviar</button>
+            <input type="reset" name="Restablecer" />
+        </div>
+
+       </section>
+
+    </form>
+    <script src="index.js"></script>
+
+    <p class="Interes">Las cuotas tienen intereses diferentes:
+        03=10%
+        06=12%
+        12=15%
+        18=17%
+        24=20%
+     </p>
+    
+    <footer>
+           <p>Prestamofacil al alcance de tu mano!</p>
+           <img src="./imagenes/facebook.png" alt="Facebook" width="50px">/prestamofacil</img>
+           <img src="./imagenes/instagram.png" alt="Instagram" width="50px">/Prestafacil</img>
+
+
+    </footer>
+    
+</body>
+</html>
