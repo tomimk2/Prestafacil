@@ -8,7 +8,8 @@ class Prestamo {
 }
 
 let PrestamosSolicitados = [];
-
+let boton = document.getElementById("boton");
+boton.addEventListener("click" , enviar);
 function enviar() {
 
   let nombre = document.getElementById("nombre").value;
@@ -40,8 +41,8 @@ function enviar() {
     }
   }
   let PagoCuota = division(suma(numeroPrestamo, interes(numeroPrestamo)), numeroCuota); 
-  alert("el pago por cuota es " + PagoCuota);
-  console.log("el pago por cuota es " + PagoCuota);
+  let Resultado = document.getElementById("form")
+  form.innerHTML = `<h1> el pago de la cuota es ` + PagoCuota;
 }
 
 PrestamosSolicitados.sort(function(numeroPrestamo1,numeroPrestamo2){
