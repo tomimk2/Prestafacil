@@ -18,9 +18,7 @@ function enviar() {
   let numeroPrestamo = parseInt(document.getElementById("prestamo").value);
   let numeroCuota = parseInt(document.getElementById("cuota").value);
 
-  localStorage.setItem("Persona" , nombre);
-  localStorage.setItem("DNI" , dni);
-  localStorage.setItem("Prestamo" , numeroPrestamo);
+  localStorage.setItem(dni , nombre);
  
   PrestamosSolicitados.push(new Prestamo(nombre, dni, numeroPrestamo, numeroCuota));
 
