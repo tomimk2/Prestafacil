@@ -10,6 +10,7 @@ class Prestamo {
 let PrestamosSolicitados = [];
 let boton = document.getElementById("boton");
 boton.addEventListener("click" , enviar);
+
 function enviar() {
 
   let nombre = document.getElementById("nombre").value;
@@ -17,6 +18,10 @@ function enviar() {
   let numeroPrestamo = parseInt(document.getElementById("prestamo").value);
   let numeroCuota = parseInt(document.getElementById("cuota").value);
 
+  localStorage.setItem("Persona" , nombre);
+  localStorage.setItem("DNI" , dni);
+  localStorage.setItem("Prestamo" , numeroPrestamo);
+ 
   PrestamosSolicitados.push(new Prestamo(nombre, dni, numeroPrestamo, numeroCuota));
 
   function division(a, b) {
@@ -41,19 +46,20 @@ function enviar() {
     }
   }
   let PagoCuota = division(suma(numeroPrestamo, interes(numeroPrestamo)), numeroCuota); 
-  let Resultado = document.getElementById("form")
+  let Resultado = document.getElementById("form");
   form.innerHTML = `<h1> el pago de la cuota es ` + PagoCuota;
-}
 
-PrestamosSolicitados.sort(function(numeroPrestamo1,numeroPrestamo2){
+  PrestamosSolicitados.sort(function(numeroPrestamo1,numeroPrestamo2){
  
-  if (numeroPrestamo1.numeroPrestamo > numeroPrestamo2.numeroPrestamo){
-  return 1;}
-  else if (numeroPrestamo1.numeroPrestamo < numeroPrestamo2.numeroPrestamo){
-  return -1;}
-  else {
-    return 0;
-  }
-});
-console.log(PrestamosSolicitados);
+    if (numeroPrestamo1.numeroPrestamo > numeroPrestamo2.numeroPrestamo){
+    return 1;}
+    else if (numeroPrestamo1.numeroPrestamo < numeroPrestamo2.numeroPrestamo){
+    return -1;}
+    else {
+      return 0;
+    }
+  });
+  console.log(PrestamosSolicitados);
+
+}
 
