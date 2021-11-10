@@ -8,20 +8,25 @@ class Prestamo {
 }
 
 let PrestamosSolicitados = [];
-let boton = document.getElementById("boton");
-boton.addEventListener("click" , enviar);
+
+
+
+$("#boton1").click(function(){
+  location.reload();
+})
+$("#boton").on("click" , enviar)
+
 
 function enviar() {
 
-  let nombre = document.getElementById("nombre").value;
-  let dni = document.getElementById("dni").value;
+  let nombre = $("#nombre").val();
+  let dni = $("#dni").val();
   let numeroPrestamo = parseInt(document.getElementById("prestamo").value);
   let numeroCuota = parseInt(document.getElementById("cuota").value);
-  let correo = document.getElementById("Email").value;
+  let correo = $("#Email").val();
+  let error = $(".error");
 
   localStorage.setItem(nombre , correo);
- 
-  PrestamosSolicitados.push(new Prestamo(nombre, dni, numeroPrestamo, numeroCuota));
 
   function division(a, b) {
     return a / b;
@@ -45,9 +50,6 @@ function enviar() {
     }
   }
   let PagoCuota = division(suma(numeroPrestamo, interes(numeroPrestamo)), numeroCuota); 
-  let Resultado = document.getElementById("form");
-  form.innerHTML = `<h1> el pago de la cuota es ` + PagoCuota;
-
   PrestamosSolicitados.sort(function(numeroPrestamo1,numeroPrestamo2){
  
     if (numeroPrestamo1.numeroPrestamo > numeroPrestamo2.numeroPrestamo){
@@ -60,5 +62,25 @@ function enviar() {
   });
   console.log(PrestamosSolicitados);
 
-}
+  PrestamosSolicitados.push(new Prestamo(nombre, dni, numeroPrestamo, numeroCuota, PagoCuota));
 
+  if (numeroPrestamo > 0){
+  console.log("el Pago de la cuota es de $" + PagoCuota);
+  mostrarPago();
+ }
+  else {
+  console.log("Datos Incorrectos");
+  error.css("display" , "block");
+  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.")
+ }
+ function mostrarPago(){
+
+  $("#form").html(
+    "<div id='Resultado'>"+
+    "<h3>El valor de la cuota solicitada es:</h3>"+
+    "<h4>"+ PagoCuota +"</h4>"+
+    "</div>"
+)
+
+}
+}

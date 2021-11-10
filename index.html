@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestafacil</title>
     <link rel="stylesheet" href="estilo.css">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <header class="header">
 
     <img src="./imagenes/Nuevo proyecto.png" alt="Prestafacil">
 
 </header>
+
 <body class=body>
-    
+
     <h1 class="title">Bienvenidos a Prestafacil!</h1>
     <h2 class="mensaje">Con tu nombre y dni obtene la pre-aprobación de tu credito!!</h2>
     <form class="form">
-       <section class="formulario">
-       <div id="form">
-          <div>
-          <label class="parrafos">Nombre:</label>
-          <input type="text" id="nombre" name="Nombre"/>
-          </div>
-          <br>
-          <div>
-          <label class="parrafos">DNI:</label>
-          <input type="text" id="dni" name="DNI"/>
-          </div>
-          <br>
-          <div>
-          <label class="parrafos">Cantidad de Dinero:</label>
-          <input type="text" id="prestamo" name="Prestamo"/>
-          </div>
-          <br>
-          <div>
-            <label class="parrafos">Email:</label>
-            <input type="email" id="Email" name="email"/>
+        <section class="formulario">
+            <div id="form">
+                <div>
+                    <label class="parrafos">Nombre:</label>
+                    <input type="text" id="nombre" name="Nombre" />
+                </div>
+                <br>
+                <div>
+                    <label class="parrafos">DNI:</label>
+                    <input type="text" id="dni" name="DNI" />
+                </div>
+                <br>
+                <div>
+                    <label class="parrafos">Cantidad de Dinero:</label>
+                    <input type="text" id="prestamo" name="Prestamo" />
+                </div>
+                <br>
+                <div>
+                    <label class="parrafos">Email:</label>
+                    <input type="email" id="Email" name="email" />
+                </div>
+                <br>
+                <div>
+                    <label class="parrafos">Numero de Cuota:</label>
+                    <select name="Cuota" id="cuota">
+                        <option value="3">03</option>
+                        <option value="6">06</option>
+                        <option value="12">12</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                    </select>
+                </div>
             </div>
             <br>
-          <div>
-          <label class="parrafos">Numero de Cuota:</label>
-          <select name="Cuota" id="cuota">
-             <option value="3">03</option>
-             <option value="6">06</option>
-             <option value="12">12</option>
-             <option value="18">18</option>
-             <option value="24">24</option>
-          </select>
-          </div>
-        </div>
-        <br>
-        <div>
-            <button id="boton" type="button">Enviar</button>
-            <button id="boton1" type="button">Restablecer</button>
-        </div>
+            <div>
+                <button id="boton" type="button">Enviar</button>
+                <button id="boton1" type="button" >Restablecer</button>
+            </div>
+            <div>
+                <span class="error"></span>
+            </div>
 
-       </section>
+        </section>
 
     </form>
     <script src="index.js"></script>
@@ -68,15 +74,16 @@
         12=15%
         18=17%
         24=20%
-     </p>
-    
+    </p>
+
     <footer>
-           <p>Prestamofacil al alcance de tu mano!</p>
-           <img src="./imagenes/facebook.png" alt="Facebook" width="50px">/prestamofacil</img>
-           <img src="./imagenes/instagram.png" alt="Instagram" width="50px">/Prestafacil</img>
+        <p>Prestamofacil al alcance de tu mano!</p>
+        <img src="./imagenes/facebook.png" alt="Facebook" width="50px">/prestamofacil</img>
+        <img src="./imagenes/instagram.png" alt="Instagram" width="50px">/Prestafacil</img>
 
 
     </footer>
-    
+
 </body>
+
 </html>
