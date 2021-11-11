@@ -26,6 +26,9 @@ function enviar() {
   let correo = $("#Email").val();
   let error = $(".error");
   let recuadro = $(".input");
+  let recuadro1 = $(".input1");
+  let recuadro2 = $(".input2");
+  let recuadro3 = $(".input3");
   localStorage.setItem(nombre , correo);
 
   function division(a, b) {
@@ -64,16 +67,36 @@ function enviar() {
 
   PrestamosSolicitados.push(new Prestamo(nombre, dni, numeroPrestamo, numeroCuota, PagoCuota));
 
-  if (numeroPrestamo > 0){
+  
+ if (nombre == ""){
+  console.log("Datos Incorrectos");
+  error.css("display" , "block");
+  recuadro.css("border", "solid red 2px");
+  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.");
+ }
+ else if (dni == ""){
+  console.log("Datos Incorrectos");
+  error.css("display" , "block");
+  recuadro1.css("border", "solid red 2px");
+  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.");
+ }
+ else if (numeroPrestamo == 0 || numeroPrestamo == ""){
+  console.log("Datos Incorrectos");
+  error.css("display" , "block");
+  recuadro2.css("border", "solid red 2px");
+  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.");
+ }
+ else if (correo == ""){
+  console.log("Datos Incorrectos");
+  error.css("display" , "block");
+  recuadro3.css("border", "solid red 2px");
+  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.");
+ }
+ else {
   console.log("el Pago de la cuota es de $" + PagoCuota);
   mostrarPago();
  }
-  else {
-  console.log("Datos Incorrectos");
-  error.css("display" , "block");
-  recuadro.css("border", "solid red 2px")
-  error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.")
- }
+
  function mostrarPago(){
 
   $("#form").html(
