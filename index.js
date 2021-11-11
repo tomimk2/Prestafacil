@@ -25,7 +25,7 @@ function enviar() {
   let numeroCuota = parseInt(document.getElementById("cuota").value);
   let correo = $("#Email").val();
   let error = $(".error");
-
+  let recuadro = $(".input");
   localStorage.setItem(nombre , correo);
 
   function division(a, b) {
@@ -71,6 +71,7 @@ function enviar() {
   else {
   console.log("Datos Incorrectos");
   error.css("display" , "block");
+  recuadro.css("border", "solid red 2px")
   error.html("Datos Incorrectos! Por Favor volver a ingresar los datos.")
  }
  function mostrarPago(){
@@ -78,7 +79,7 @@ function enviar() {
   $("#form").html(
     "<div id='Resultado'>"+
     "<h3>El valor de la cuota solicitada es:</h3>"+
-    "<h4>"+ PagoCuota +"</h4>"+
+    "<h4>$"+ PagoCuota +"</h4>"+
     "</div>"
 )
 
