@@ -8,42 +8,6 @@ class Prestamo {
 
 let PrestamosSolicitados = [];
 
-let geoLoc = navigator.geolocation.getCurrentPosition(geoLocal);
-function geoLocal( position ){
-
-  console.log("latitud: " + position.coords.latitude);
-  console.log("Long: " + position.coords.longitude);
-
-$.ajax({
-  url:'http://api.openweathermap.org/data/2.5/weather',
-  type:"GET",
-  data:{
-      lat:'-34.600',
-      lon:'-58.450',
-      appid: '7cdb8a65058e116eee3cfc820beac722',
-      dataType:"jsonp",
-      units: 'metric',
-  },
-  success:function(data){
-    console.log(data);
-    let icono = data.weather[0].icon;
-    let iconoURL = "http://openweathermap.org/img/w/" + icono + ".png";
-    $("#icono").attr("src" , iconoURL);
-    let contenido = `<div>
-                        <p>${data.name}</p>                            
-                        <p>${data.weather[0].main}</p>
-                        <p>TEMP MAX: ${data.main.temp_max}°</p>
-                        <p>TEMP MIN: ${data.main.temp_min}°</p>
-
-                    </div>`;
-
-    $("#Clima").append(contenido);
-
-
-}
-})
-}
-
 $(document).ready(function(){ 
   $('#info').on('click',function(){
      $('#Nosotros').toggle(2000);
@@ -56,6 +20,7 @@ $("#boton1").click(function () {
 $("#boton").on("click", enviar);
 
 function enviar() {
+ 
   let nombre = $("#nombre").val();
   let dni = $("#dni").val();
   let numeroPrestamo = parseInt(document.getElementById("prestamo").value);
@@ -144,8 +109,17 @@ function enviar() {
         "<h3>El valor de la cuota solicitada es:</h3>" +
         "<h3>$" +
         PagoCuota +
-        "</h3>" +
-        "</div>"
+        "</h3>" + "</div>" +
+        "<button id='boton2' type='button'>Confirmar</button>" 
+        
     );
-  }
+  $("#boton2").on("click" , confirmar )
+  function confirmar() {
+
+   Swal.fire(
+     'Confirmado!',
+     'Usted confirmo la pre-aprobación del credito',
+     'success'
+   );
+};} 
 }
